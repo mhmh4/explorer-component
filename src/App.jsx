@@ -4,7 +4,7 @@ function Node() {
   const [children, setChildren] = useState([]);
 
   return (
-    <div className="border-l border-black pl-4">
+    <>
       <button
         onClick={() => {
           setChildren((currentChildren) => {
@@ -26,10 +26,12 @@ function Node() {
       >
         Add new directory
       </button>
-      {children.map((item, index) => {
-        return <div key={index}>{item}</div>;
-      })}
-    </div>
+      <div className="border-l border-black pl-4">
+        {children.map((item, index) => {
+          return <div key={index}>{item}</div>;
+        })}
+      </div>
+    </>
   );
 }
 
