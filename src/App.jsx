@@ -1,19 +1,15 @@
 import { useEffect, useState } from "react";
 
 function Node() {
-  const [files, setFiles] = useState([]);
-
-  useEffect(() => {
-    setFiles(["file 1", "file 2", "file 3"]);
-  }, []);
+  const [children, setChildren] = useState([]);
 
   return (
     <>
       <button
         onClick={() => {
-          setFiles((currentFiles) => {
+          setChildren((currentChildren) => {
             return [
-              ...currentFiles,
+              ...currentChildren,
               "file " + crypto.randomUUID().substring(0, 8),
             ];
           });
@@ -21,8 +17,8 @@ function Node() {
       >
         Add new file
       </button>
-      {files.map((file, index) => {
-        return <div key={index}>{file}</div>;
+      {children.map((item, index) => {
+        return <div key={index}>{item}</div>;
       })}
     </>
   );
