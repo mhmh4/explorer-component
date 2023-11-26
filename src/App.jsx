@@ -9,6 +9,18 @@ export default function App() {
 
   return (
     <>
+      <button
+        onClick={() => {
+          setFiles((currentFiles) => {
+            return [
+              ...currentFiles,
+              "file " + crypto.randomUUID().substring(0, 8),
+            ];
+          });
+        }}
+      >
+        Add new file
+      </button>
       {files.map((file, index) => {
         return <div key={index}>{file}</div>;
       })}
