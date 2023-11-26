@@ -17,6 +17,15 @@ function Node() {
       >
         Add new file
       </button>
+      <button
+        onClick={() => {
+          setChildren((currentChildren) => {
+            return [...currentChildren, <Node />];
+          });
+        }}
+      >
+        Add new directory
+      </button>
       {children.map((item, index) => {
         return <div key={index}>{item}</div>;
       })}
