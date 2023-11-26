@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function App() {
+function Node() {
   const [files, setFiles] = useState([]);
 
   useEffect(() => {
@@ -26,4 +26,8 @@ export default function App() {
       })}
     </>
   );
+}
+
+export default function App() {
+  return <Node />;
 }
