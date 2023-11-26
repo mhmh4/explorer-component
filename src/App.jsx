@@ -4,7 +4,7 @@ function Node() {
   const [children, setChildren] = useState([]);
 
   return (
-    <>
+    <div className="border-l border-black pl-4">
       <button
         onClick={() => {
           setChildren((currentChildren) => {
@@ -29,10 +29,14 @@ function Node() {
       {children.map((item, index) => {
         return <div key={index}>{item}</div>;
       })}
-    </>
+    </div>
   );
 }
 
 export default function App() {
-  return <Node />;
+  return (
+    <div className="m-10">
+      <Node />
+    </div>
+  );
 }
