@@ -1,7 +1,9 @@
 import { useState } from "react";
 
 function Node({ isDirectory }) {
-  const [name, setName] = useState("name");
+  const [name, setName] = useState(
+    isDirectory ? "Unnamed directory" : "Unnamed file",
+  );
   const [children, setChildren] = useState([]);
 
   return (
