@@ -8,31 +8,33 @@ function Node({ isDirectory }) {
     <>
       <span className="mr-4">{name}</span>
       {isDirectory && (
-        <div>
+        <>
           <button
+            className="mx-1 rounded border bg-slate-100 px-1 text-sm"
             onClick={() => {
               setChildren((currentChildren) => {
                 return [...currentChildren, <Node isDirectory={false} />];
               });
             }}
           >
-            Add new file
+            + file
           </button>
           <button
+            className="mx-1 rounded border bg-slate-100 px-1 text-sm"
             onClick={() => {
               setChildren((currentChildren) => {
                 return [...currentChildren, <Node isDirectory={true} />];
               });
             }}
           >
-            Add new directory
+            + directory
           </button>
           <div className="border-l border-black pl-4">
             {children.map((item, index) => {
               return <div key={index}>{item}</div>;
             })}
           </div>
-        </div>
+        </>
       )}
     </>
   );
