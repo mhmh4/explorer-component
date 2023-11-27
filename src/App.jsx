@@ -44,7 +44,7 @@ function Node({ isDirectory }) {
 
 export default function App() {
   return (
-    <div className="m-10">
+    <div className="mx-auto mt-3 h-[90vh] w-[60vw] overflow-y-scroll border">
       <Node isDirectory={true} />
     </div>
   );
