@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function Node() {
+  const [name, setName] = useState("name");
   const [children, setChildren] = useState([]);
 
   return (
     <>
+      <span className="mr-4">{name}</span>
       <button
         onClick={() => {
           setChildren((currentChildren) => {
