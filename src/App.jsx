@@ -8,35 +8,40 @@ function Node({ isDirectory }) {
 
   return (
     <>
-      <span className="mr-4">{name}</span>
+      {!isDirectory && <span className="mr-4">{name}</span>}
       {isDirectory && (
-        <>
-          <button
-            className="mx-1 rounded border bg-slate-100 px-1 text-sm"
-            onClick={() => {
-              setChildren((currentChildren) => {
-                return [...currentChildren, <Node isDirectory={false} />];
-              });
-            }}
-          >
-            + file
-          </button>
-          <button
-            className="mx-1 rounded border bg-slate-100 px-1 text-sm"
-            onClick={() => {
-              setChildren((currentChildren) => {
-                return [...currentChildren, <Node isDirectory={true} />];
-              });
-            }}
-          >
-            + directory
-          </button>
-          <div className="border-l border-black pl-4">
-            {children.map((item, index) => {
-              return <div key={index}>{item}</div>;
-            })}
-          </div>
-        </>
+        <details>
+          <summary className="mr-4">{name}</summary>
+          {isDirectory && (
+            <>
+              <button
+                className="mx-1 rounded border bg-slate-100 px-1 text-sm"
+                onClick={() => {
+                  setChildren((currentChildren) => {
+                    return [...currentChildren, <Node isDirectory={false} />];
+                  });
+                }}
+              >
+                + file
+              </button>
+              <button
+                className="mx-1 rounded border bg-slate-100 px-1 text-sm"
+                onClick={() => {
+                  setChildren((currentChildren) => {
+                    return [...currentChildren, <Node isDirectory={true} />];
+                  });
+                }}
+              >
+                + directory
+              </button>
+              <div className="border-l border-black pl-4">
+                {children.map((item, index) => {
+                  return <div key={index}>{item}</div>;
+                })}
+              </div>
+            </>
+          )}
+        </details>
       )}
     </>
   );
@@ -44,7 +49,7 @@ function Node({ isDirectory }) {
 
 export default function App() {
   return (
-    <div className="mx-auto mt-3 h-[90vh] w-[60vw] overflow-y-scroll border">
+    <div className="mx-auto mt-3 h-[90vh] w-[60vw] overflow-y-scroll border p-2">
       <Node isDirectory={true} />
     </div>
   );
